@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Predavanje</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.js"
+            integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container">
+    <br>
+    <form action="/predavanje" method="post">
+        <input type="hidden" name="korisnik" value="<%= user %>">
+        <div class="form-group">
+            <label for="formGroupExampleInput">Unesite Ime Predmeta:</label>
+            <input type="text" name="predmet" class="form-control" id="formGroupExampleInput" placeholder="predmet">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Unesite Ime Predavanja:</label>
+            <input type="text" name="predavanje" class="form-control" id="formGroupExampleInput" placeholder="predavanje">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Unesite kod:</label>
+            <input type="text" name="kod" class="form-control" id="formGroupExampleInput2" placeholder="kod">
+        </div>
+        <button type="submit" class="btn btn-sm btn-primary">Spremiti</button>
+    </form>
+</div>
+
+</body>
+</html>

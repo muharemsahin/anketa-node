@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Odgovorite na pitanja</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.js"
+            integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+ <div class="container">
+     <br><br>
+     <h3>Odgovorite na Pitanja</h3>
+     <ul class="list-group">
+         <%if (pitanja == null) {%>
+         <h3 class="bg-success text-light text-center p-4">Anketa nije pokrenuta</h3>
+         <%} else {%>
+         <%pitanja.forEach(p => {%>
+         <li class="list-group-item">
+             <h6><strong>Pitanje: </strong><%= p.pitanje %></h6>
+             <p><strong>Vrijeme: </strong><%= p.vrijeme %> | <strong>Tip: </strong>
+                 <% if (p.tip == 1) {%>
+                     Tekstualno Pitanje
+                 <%} else {%>
+                     DA/NE Pitanje
+                 <%}%>
+             </p>
+         </li>
+                 <li class="list-group-item bg-secondary text-light">
+                     <form action="/odgovoren" method="post">
+                         <input type="hidden" name="pitanje_id" value=" <%= p.id %>">
+                         <% if (p.tip == 2) {%>
+                         <div class="form-check">
+                             <input class="form-check-input" type="radio" name="tip" id="exampleRadios1" value="da" checked>
+                             <label class="form-check-label" for="exampleRadios1">
+                                 DA
+                             </label>
+                         </div>
+                         <div class="form-check">
+                             <input class="form-check-input" type="radio" name="tip" id="exampleRadios2" value="ne">
+                             <label class="form-check-label" for="exampleRadios2">
+                                 NE
+                             </label>
+                         </div>
+                             <%} else {%>
+                         <div class="form-group">
+                             <label for="exampleFormControlTextarea1">Tekstualni Odgovor</label>
+                             <textarea class="form-control" name="tip" id="exampleFormControlTextarea1" rows="3"></textarea>
+                         </div>
+                             <%}%>
+                             <br>
+                         <button type="submit" class="btn btn-light btn-sm">Posalji</button>
+                     </form>
+                     <br>
+                     <a class="btn btn-sm btn-light" href="/rezultati/<%= p.id %>" role="button">Rezultati</a>
+
+                 </li>
+             <br><br>
+         <%})%>
+        <%}%>
+     </ul>
+ </div>
+</body>
+</html>

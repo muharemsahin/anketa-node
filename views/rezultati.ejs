@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Odgovori </title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.js"
+            integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron bg-warning">
+            <h1 class="display-4">Odgovori na Pitanje</h1>
+            <hr class="my-4">
+            <p>Vasi Odgovori su:</p>
+        </div>
+        <div class="row-6">
+            <ul class="list-group">
+                <%rezultat.forEach(r => {%>
+                <li class="list-group-item list-group-item-warning"><%= r.odgovor %></li>
+                <%})%>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pravljenje Pitanja</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.js"
+            integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="container">
+    <div class="row-12">
+        <br>
+        <form action="/pokreni" method="post">
+            <input type="hidden" name="kod" value="<%= kod %>">
+            <button type="submit" class="btn btn-success">Pokreni Anketu</button>
+        </form>
+        <br>
+        <form action="/postavi" method="post">
+            <input type="hidden" name="kod" value="<%= kod %>">
+            <div class="form-group">
+                <label for="formGroupExampleInput">Unesite Pitanje</label>
+                <input type="text" name="pitanje" class="form-control" id="formGroupExampleInput" placeholder="pitanje">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Tipovi Pitanja</label>
+                <select name="tip" class="form-control" id="exampleFormControlSelect1">
+                    <option value="1">Tekstualni</option>
+                    <option value="2">DA/NE</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Vrijeme</label>
+                <input type="number" name="vrijeme" class="form-control" id="formGroupExampleInput2" placeholder="vrijeme">
+            </div>
+            <button type="submit" class="btn btn-sm btn-success">Unesite</button>
+        </form>
+    </div>
+
+
+    <br>
+    <h4>Data pitanja: </h4>
+    <div class="list-group">
+        <%pitanja.forEach(p => {%>
+        <a href="#" class="list-group-item list-group-item-action list-group-item-primary">
+            <h6><strong>Pitanje: </strong><%= p.pitanje %></h6>
+            <p><strong>Vrijeme: </strong><%= p.vrijeme %> | <strong>Tip: </strong>
+                <% if (p.tip == 1) {%>
+                   Tekstualno Pitanje
+                <%} else {%>
+                   DA/NE Pitanje
+                <%}%>
+            </p>
+        </a>
+
+        <%})%>
+    </div>
+</div>
+</div>
+</body>
+</html>
