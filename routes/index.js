@@ -10,7 +10,7 @@ router.post("/", async (req, res, next) => {
     console.log(req.body);
     const rez = await pool.query("SELECT username FROM korisnik WHERE username = $1 AND password = $2;", [req.body.login, req.body.password])
     if (rez.rows.length == 0) {
-        res.send("Pokusajte ponovo");
+        res.redirect("/");
     } else {
         res.redirect("/ankete/" + req.body.login)
     }
